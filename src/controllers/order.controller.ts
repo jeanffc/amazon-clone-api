@@ -6,7 +6,7 @@ import { Order } from '../models/order.model';
 export const createOrder = async (req: Request, res: Response) => {
   const order = new Order(req.body);
   await order.save();
-  res.status(200).send(order);
+  res.status(201).send(order);
 };
 
 export const getOrder = async (req: Request, res: Response) => {
@@ -26,5 +26,5 @@ export const updateOrder = async (req: Request, res: Response) => {
 
 export const deleteOrder = async (req: Request, res: Response) => {
   await Order.findByIdAndDelete({ _id: req.params.id });
-  res.status(200).send();
+  res.status(204).send();
 };

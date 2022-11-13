@@ -6,7 +6,7 @@ import { Product } from '../models/product.model';
 export const createProduct = async (req: Request, res: Response) => {
   const product = new Product(req.body);
   await product.save();
-  res.status(200).send(product);
+  res.status(201).send(product);
 };
 
 export const getProduct = async (req: Request, res: Response) => {
@@ -26,5 +26,5 @@ export const updateProduct = async (req: Request, res: Response) => {
 
 export const deleteProduct = async (req: Request, res: Response) => {
   await Product.findByIdAndDelete({ _id: req.params.id });
-  res.status(200).send();
+  res.status(204).send();
 };

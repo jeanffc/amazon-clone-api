@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 
 const orderSchema = new Schema(
   {
-    user: { type: String, required: true, default: '1' }, // NOTE: for this exercice the user is always the same
+    user: { type: String, required: true, default: '1' }, // NOTE: for this exercise the user is always the same
     orderItems: [
       {
         product: { type: mongoose.Schema.Types.ObjectId, ref: 'Product', required: true },

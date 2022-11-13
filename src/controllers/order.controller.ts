@@ -1,8 +1,6 @@
 import { Request, Response } from 'express';
 import { Order } from '../models/order.model';
 
-// TODO: review response status
-
 export const createOrder = async (req: Request, res: Response) => {
   const order = new Order(req.body);
   await order.save();

@@ -2,34 +2,22 @@ import mongoose from 'mongoose';
 
 const { Schema } = mongoose;
 
-const orderSchema = new Schema({
-  userId: {
-    type: String
+const orderSchema = new Schema(
+  {
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    order_items: [
+      {
+        product: { type: mongoose.Schema.Types.ObjectId, ref: 'Product', required: true },
+        title: { type: String, required: true },
+        price: { type: Number, required: true },
+        quantity: { type: Number, required: true, min: [1, 'Quantity can not be less then 1.'] }
+      }
+    ],
+    total_price: { type: Number, required: true }
   },
-  products: [
-    {
-      productId: String,
-      name: String,
-      quantity: {
-        type: Number,
-        required: true,
-        min: [1, 'Quantity can not be less then 1.']
-      },
-      price: Number
-    }
-  ],
-  bill: {
-    type: Number,
-    required: true
-  },
-  created_at: {
-    type: Date,
-    default: Date.now
-  },
-  updated_at: {
-    type: Date,
-    default: Date.now
+  {
+    timestamps: true
   }
-});
+);
 
 export const Order = mongoose.model('Order', orderSchema);

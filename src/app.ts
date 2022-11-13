@@ -1,5 +1,6 @@
 import express, { Express } from 'express';
 import morgan from 'morgan';
+import helmet from 'helmet';
 import cors from 'cors';
 import routesV1 from './routes/v1';
 
@@ -7,6 +8,9 @@ const app: Express = express();
 
 // enable log
 app.use(morgan('tiny'));
+
+// enable helmet
+app.use(helmet());
 
 // enable cors
 app.use(cors());

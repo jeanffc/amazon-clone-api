@@ -1,4 +1,4 @@
-import express, { Express } from 'express';
+import express, { Express, NextFunction, Request, Response } from 'express';
 import morgan from 'morgan';
 import helmet from 'helmet';
 import cors from 'cors';
@@ -27,5 +27,10 @@ app.use('/health', (req: express.Request, res: express.Response) => {
 
 // routes for /v1 path
 app.use('/v1', routesV1);
+
+// enable error handler
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+  res.status(500).send({ message: err.message });
+});
 
 export { app };

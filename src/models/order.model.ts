@@ -4,8 +4,8 @@ const { Schema } = mongoose;
 
 const orderSchema = new Schema(
   {
-    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-    order_items: [
+    user: { type: String, required: true, default: '1' }, // NOTE: for this exercice the user is always the same
+    orderItems: [
       {
         product: { type: mongoose.Schema.Types.ObjectId, ref: 'Product', required: true },
         title: { type: String, required: true },
@@ -13,7 +13,7 @@ const orderSchema = new Schema(
         quantity: { type: Number, required: true, min: [1, 'Quantity can not be less then 1.'] }
       }
     ],
-    total_price: { type: Number, required: true }
+    totalPrice: { type: Number, required: true }
   },
   {
     timestamps: true

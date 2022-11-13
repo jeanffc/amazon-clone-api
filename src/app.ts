@@ -3,6 +3,7 @@ import morgan from 'morgan';
 import helmet from 'helmet';
 import cors from 'cors';
 import routesV1 from './routes/v1';
+import { errorHandler } from './middlewares/error';
 
 const app: Express = express();
 
@@ -29,8 +30,6 @@ app.use('/health', (req: express.Request, res: express.Response) => {
 app.use('/v1', routesV1);
 
 // enable error handler
-app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-  res.status(500).send({ message: err.message });
-});
+app.use(errorHandler);
 
 export { app };

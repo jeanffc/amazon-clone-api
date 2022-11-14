@@ -27,15 +27,21 @@ List of available routes:
 #### Orders routes:
 
 `POST /v1/orders/` - create order
+
 `GET /v1/orders/` - get orders
+
 `GET /v1/orders/:orderId` - get order by id
 
 #### Products routes:
 
 `POST /v1/products` - create a product
+
 `GET /v1/products` - get all products
+
 `GET /v1/products/:productId` - get product by id
+
 `PUT /v1/products/:productId` - update product by id
+
 `DELETE /v1/products/:productId` - delete product by id
 
 ## Project Structure

@@ -1,0 +1,90 @@
+# TODO: finish swagger
+
+openapi: 3.0.3
+info:
+  title: Store - OpenAPI 3.0
+  description: |-
+    This is a Store API
+  contact:
+    email: jeanffc@gmail.com
+  version: 1.0.0
+
+servers:
+  - url: https://localhost:8080/v1
+tags:
+  - name: product
+    description: Everything about Products
+  - name: order
+    description: Everything about Orders
+paths:
+  /products:
+    post:
+      tags:
+        - product
+      summary: Create a new product to the store
+      description: Create a new product to the store
+      operationId: createProduct
+      requestBody:
+        description: Create a new product in the store
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+        required: true
+      responses:
+        '201':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '400':
+          description: Invalid input
+        '500':
+          description: Internal Server Error
+      security:
+        - productstore_auth:
+            - write:products
+            - read:products
+    get:
+      tags:
+        - product
+  /products/{productId}:
+    get:
+      tags:
+        - product
+    put:
+      tags:
+        - product
+    delete:
+      tags:
+        - product
+  /orders:
+    post:
+      tags:
+        - order
+    get:
+      tags:
+        - order
+  /orders/{orderId}:
+    get:
+      tags:
+        - order
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        title:
+          type: string
+          example: t-shirt
+        bodyHtml:
+          type: string
+          example: <p>Lorem inpism...</p>
+        slug:
+          type: string
+          example: t-shirt
+        image:
+          type: string
+          example: https://i.picsum.photos/id/237/200/200.jpg?hmac=zHUGikXUDyLCCmvyww1izLK3R3k8oRYBRiTizZEdyfI
+    Order:

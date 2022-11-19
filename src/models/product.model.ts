@@ -9,11 +9,16 @@ const productSchema = new Schema(
     slug: { type: String, required: true },
     image: { type: String, required: true },
     images: [String],
+    options: [
+      {
+        name: String,
+        values: [String]
+      }
+    ],
     variants: [
       {
         title: { type: String, required: true },
-        colour: String,
-        material: String,
+        option: { type: Object },
         price: { type: Number, required: true }
       }
     ]

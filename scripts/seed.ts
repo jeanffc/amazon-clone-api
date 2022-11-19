@@ -20,54 +20,84 @@ export async function create() {
     bodyHtml: '<p>My t-shirt description</p>',
     slug: 't-shirt',
     image: 'https://i.picsum.photos/id/237/600/700.jpg?hmac=LbMfCusgfPyH5oAbos3QYUGG8B4fctY9eYFWfhKAdqE',
+    options: [
+      {
+        name: 'colour',
+        values: ['black', 'white', 'green', 'red']
+      },
+      {
+        name: 'material',
+        values: ['light cotton', 'heavy cotton']
+      },
+      {
+        name: 'custom',
+        values: []
+      }
+    ],
     variants: [
       {
         title: 't-shirt black light cotton',
-        colour: 'black',
-        material: 'light cotton',
+        option: {
+          colour: 'black',
+          material: 'light cotton'
+        },
         price: 16.95
       },
       {
         title: 't-shirt white light cotton',
-        colour: 'white',
-        material: 'light cotton',
+        option: {
+          colour: 'white',
+          material: 'light cotton'
+        },
         price: 16.95
       },
       {
         title: 't-shirt black heavy cotton',
-        colour: 'black',
-        material: 'heavy cotton',
+        option: {
+          colour: 'black',
+          material: 'heavy cotton'
+        },
         price: 19.95
       },
       {
         title: 't-shirt white heavy cotton',
-        colour: 'white',
-        material: 'heavy cotton',
+        option: {
+          colour: 'white',
+          material: 'heavy cotton'
+        },
         price: 19.95
       },
 
       {
         title: 't-shirt green light cotton',
-        colour: 'green',
-        material: 'light cotton',
+        option: {
+          colour: 'green',
+          material: 'light cotton'
+        },
         price: 18.95
       },
       {
         title: 't-shirt red light cotton',
-        colour: 'red',
-        material: 'light cotton',
+        option: {
+          colour: 'red',
+          material: 'light cotton'
+        },
         price: 18.95
       },
       {
         title: 't-shirt green heavy cotton',
-        colour: 'green',
-        material: 'heavy cotton',
+        option: {
+          colour: 'green',
+          material: 'heavy cotton'
+        },
         price: 21.95
       },
       {
         title: 't-shirt red heavy cotton',
-        colour: 'red',
-        material: 'heavy cotton',
+        option: {
+          colour: 'red',
+          material: 'heavy cotton'
+        },
         price: 21.95
       }
     ]
@@ -80,25 +110,39 @@ export async function create() {
     bodyHtml: '<p>My sweater description</p>',
     slug: 'sweater',
     image: 'https://i.picsum.photos/id/1025/600/700.jpg?hmac=HmZsOIOm8uPcbbDxEFX0P0DqyQZUAPk2Z3vWNQlZ2D0',
+    options: [
+      {
+        name: 'colour',
+        values: ['black', 'white', 'pink', 'yellow']
+      }
+    ],
     variants: [
       {
         title: 'sweater black',
-        colour: 'black',
+        option: {
+          colour: 'black'
+        },
         price: 28.95
       },
       {
         title: 'sweater white',
-        colour: 'white',
+        option: {
+          colour: 'white'
+        },
         price: 28.95
       },
       {
         title: 'sweater pink',
-        colour: 'pink',
+        option: {
+          colour: 'pink'
+        },
         price: 32.95
       },
       {
         title: 'sweater yellow',
-        colour: 'yellow',
+        option: {
+          colour: 'yellow'
+        },
         price: 32.95
       }
     ]

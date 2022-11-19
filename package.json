@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "ts-node src/server.ts",
-    "start:dev": "npx nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'ts-node' src/server.ts"
+    "start:dev": "npx nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'ts-node' src/server.ts",
+    "mongo:seed:create": "ts-node scripts/seed.ts create",
+    "mongo:seed:clear": "ts-node scripts/seed.ts clear"
   },
   "keywords": [],
   "author": "",
